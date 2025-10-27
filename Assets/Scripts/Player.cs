@@ -5,13 +5,29 @@ public class Player : MonoBehaviour
 {
     private void Update()
     {
-        if (Keyboard.current.wKey.isPressed)
+        Vector2 inputVector = new(0, 0);
+
+        if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)
         {
-            Debug.Log("pressing W");
+            inputVector.y = +1;
         }
-        else
+        if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
         {
-            Debug.Log("not pressing anything");
+            inputVector.x = -1;
         }
+        if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)
+        {
+            inputVector.y = -1;
+        }
+        if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
+        {
+            inputVector.x = +1;
+        }
+
+        inputVector = inputVector.normalized;
+        Vector3 moveDirection = new(inputVector.x, 0f, inputVector.y);
+        transform.position += moveDirection * Time.deltaTime;
+
+        Debug.Log(inputVector);
     }
 }
