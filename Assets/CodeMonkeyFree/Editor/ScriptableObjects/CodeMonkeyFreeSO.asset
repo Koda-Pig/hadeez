@@ -18,7 +18,7 @@ MonoBehaviour:
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1761557301
+  checkedLastUpdateTimestamp: 1761597548
   lastQOTDResponse:
     questionId: 235
     questionText: 'What is the Color on the SpriteRenderer after running this code?
@@ -35,27 +35,27 @@ MonoBehaviour:
     answerC: Don't Know
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1761557301
+  lastQotdTimestamp: 1761597548
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleSep25Synty.png
-    topText: AWESOME Low Poly Synty Bundle 97% OFF! Don't MISS it!
-    topLink: humblebundle
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/problemSolvingCourse.png
+    topText: Learn how to build ANYTHING you can imagine with this awesome skill!
+    topLink: problemsolvingcourse
     bottomText: DONT MISS the latest important trends, sign up for my FREE Weekly
       Newsletter!
     bottomLink: gamedevreport
-  lastDynamicHeaderTimestamp: 1761557301
+  lastDynamicHeaderTimestamp: 1761597548
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1761557301
+  websiteLatestMessageTimestamp: 1761597548
   websiteLatestVideos:
     videos:
+    - youTubeId: qX5m_EH4Wbo
+      title: How to FAIL with 100k WISHLISTS!
     - youTubeId: wBoRaQQm9WE
       title: TOP 10 NEW Systems and Tools OCTOBER 2025! | Unity Asset Store
     - youTubeId: arIZP7op9WQ
       title: My TECH Stack as a Game Developer, YouTuber and Web Dev!
     - youTubeId: Um-hDTgP0yY
       title: TOP 10 NEW Games, Made with Unity! (SEPTEMBER 2025)
-    - youTubeId: bTQZU_CV9UY
-      title: TOP 10 FREE NEW Assets OCTOBER 2025!
-  websiteLatestVideosTimestamp: 1761557301
+  websiteLatestVideosTimestamp: 1761597548
