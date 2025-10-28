@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private float moveSpeed = 7f;
+
     private void Update()
     {
         Vector2 inputVector = new(0, 0);
@@ -26,8 +29,6 @@ public class Player : MonoBehaviour
 
         inputVector = inputVector.normalized;
         Vector3 moveDirection = new(inputVector.x, 0f, inputVector.y);
-        transform.position += moveDirection * Time.deltaTime;
-
-        Debug.Log(inputVector);
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
     }
 }

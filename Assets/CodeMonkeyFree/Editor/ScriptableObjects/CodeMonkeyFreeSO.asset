@@ -14,28 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1761557301
+  lastShownTimestamp: 1761665372
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1761597548
+  checkedLastUpdateTimestamp: 1761665372
   lastQOTDResponse:
-    questionId: 235
-    questionText: 'What is the Color on the SpriteRenderer after running this code?
-
-      <p>Color
-      myColor = Color.red;</p>
-
-      <p>spriteRenderer.color = myColor;</p>
-
-      <p>myColor
-      = Color.blue;</p>'
-    answerA: Red
-    answerB: Blue
-    answerC: Don't Know
+    questionId: 236
+    questionText: Can Color ever be null?
+    answerA: Yes, always
+    answerB: No
+    answerC: Yes, as Nullable
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1761597548
+  lastQotdTimestamp: 1761665372
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/problemSolvingCourse.png
     topText: Learn how to build ANYTHING you can imagine with this awesome skill!
@@ -43,11 +35,11 @@ MonoBehaviour:
     bottomText: DONT MISS the latest important trends, sign up for my FREE Weekly
       Newsletter!
     bottomLink: gamedevreport
-  lastDynamicHeaderTimestamp: 1761597548
+  lastDynamicHeaderTimestamp: 1761665372
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1761597548
+  websiteLatestMessageTimestamp: 1761665372
   websiteLatestVideos:
     videos:
     - youTubeId: qX5m_EH4Wbo
@@ -58,4 +50,4 @@ MonoBehaviour:
       title: My TECH Stack as a Game Developer, YouTuber and Web Dev!
     - youTubeId: Um-hDTgP0yY
       title: TOP 10 NEW Games, Made with Unity! (SEPTEMBER 2025)
-  websiteLatestVideosTimestamp: 1761597548
+  websiteLatestVideosTimestamp: 1761665372
