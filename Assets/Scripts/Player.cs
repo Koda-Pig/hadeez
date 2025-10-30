@@ -8,9 +8,21 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameInput gameInput;
+
+    [SerializeField]
+    private LayerMask countersLayerMask;
     private bool isWalking;
+    private Vector3 lastInteractionDirection;
 
     private void Update()
+    {
+        HandleMovement();
+        HandleInteractions();
+    }
+
+    public bool IsWalking() => isWalking;
+
+    private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new(inputVector.x, 0f, inputVector.y);
@@ -85,5 +97,32 @@ public class Player : MonoBehaviour
         );
     }
 
-    public bool IsWalking() => isWalking;
+    private void HandleInteractions()
+    {
+        float interactDistance = 2f;
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector3 moveDirection = new(inputVector.x, 0f, inputVector.y);
+
+        if (moveDirection != Vector3.zero)
+        {
+            lastInteractionDirection = moveDirection;
+        }
+
+        if (
+            Physics.Raycast(
+                transform.position,
+                lastInteractionDirection,
+                out RaycastHit raycastHit,
+                interactDistance,
+                countersLayerMask
+            )
+        )
+        {
+            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            {
+                // has ClearCounter
+                clearCounter.Interact();
+            }
+        }
+    }
 }

@@ -1,6 +1,6 @@
 # Unity Game
 
-[CM Tut](https://youtu.be/AmGSEH7QcDg?si=258Soi2uLDatAPtj&t=8209)
+[CM Tut](https://youtu.be/AmGSEH7QcDg?si=258Soi2uLDatAPtj&t=9502)
 
 ## Notes
 
@@ -23,4 +23,5 @@
 
    Coming from a game development background in vanilla JavaScript, where signifigant calculations are involved in detecting collisions, this is fantastic. See what I mean in [this game I made with just JS](https://github.com/Koda-Pig/playground/blob/main/knight-of-cups/script.js#L97). OK just progressed further in the tut and it was explained that the `Raycast` method detects collisions from the center of the player, not taking into account any player width or height. This is unsuitable for obvious reasons. Instead, a `CapsuleCast` is used, which is generally accepted as a good substitute for an actual player shape.
 
-7. NEXT!
+7. DON'T use Unity tags. Tags use strings, and those are shit identifiers.
+8. I'm noticing some collision detection with the floor object, which is not happening in the tutorial. Not presenting an issue yet, but if it does a possible solution is to use a layer mask and then customize the Raycast check to filter out collisions with objects in that layer.
