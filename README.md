@@ -1,6 +1,6 @@
 # Unity Game
 
-[CM Tut](https://youtu.be/AmGSEH7QcDg?si=258Soi2uLDatAPtj&t=9502)
+[CM Tut](https://youtu.be/AmGSEH7QcDg?si=258Soi2uLDatAPtj&t=10058)
 
 ## Notes
 
@@ -25,3 +25,4 @@
 
 7. DON'T use Unity tags. Tags use strings, and those are shit identifiers.
 8. I'm noticing some collision detection with the floor object, which is not happening in the tutorial. Not presenting an issue yet, but if it does a possible solution is to use a layer mask and then customize the Raycast check to filter out collisions with objects in that layer.
+9. Use event listeners instead of doing constant `if` checks where appropriate. A good example of this is a player interaction. Not something you want to be checking every single frame, better to have a listener.
