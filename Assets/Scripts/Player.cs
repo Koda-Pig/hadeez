@@ -1,8 +1,15 @@
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+
+    public class OnSelectedCounterChangedEventArgs : EventArgs
+    {
+        public ClearCounter selectedCounter;
+    }
+
     [SerializeField]
     private float moveSpeed = 7f;
 
@@ -11,8 +18,10 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private LayerMask countersLayerMask;
+
     private bool isWalking;
     private Vector3 lastInteractionDirection;
+    private ClearCounter selectedCounter;
 
     private void Start()
     {
@@ -21,31 +30,7 @@ public class Player : MonoBehaviour
 
     private void GameInput_OnInterAction(object sender, System.EventArgs e)
     {
-        float interactDistance = 2f;
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-        Vector3 moveDirection = new(inputVector.x, 0f, inputVector.y);
-
-        if (moveDirection != Vector3.zero)
-        {
-            lastInteractionDirection = moveDirection;
-        }
-
-        if (
-            Physics.Raycast(
-                transform.position,
-                lastInteractionDirection,
-                out RaycastHit raycastHit,
-                interactDistance,
-                countersLayerMask
-            )
-        )
-        {
-            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
-            {
-                // has ClearCounter
-                clearCounter.Interact();
-            }
-        }
+        selectedCounter?.Interact();
     }
 
     private void Update()
@@ -154,9 +139,27 @@ public class Player : MonoBehaviour
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
-                // has ClearCounter
-                // clearCounter.Interact();
+                // if the current clearCounter is the same as the selectedcounter,
+                if (clearCounter == selectedCounter)
+                    return;
+
+                selectedCounter = clearCounter;
+
+                OnSelectedCounterChanged?.Invoke(
+                    this,
+                    new OnSelectedCounterChangedEventArgs { selectedCounter = selectedCounter } // This is strange looking.
+                );
+            }
+            else
+            {
+                selectedCounter = null;
             }
         }
+        else
+        {
+            selectedCounter = null;
+        }
+
+        Debug.Log(selectedCounter);
     }
 }
