@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             else
             {
                 // cannot move only on the X axis, try Z
-                Vector3 moveDirectionZ = new Vector3(moveDirection.z, 0, 0).normalized;
+                Vector3 moveDirectionZ = new Vector3(0, 0, moveDirection.z).normalized;
 
                 canMove = !Physics.CapsuleCast(
                     transform.position,
