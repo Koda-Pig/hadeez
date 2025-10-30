@@ -885,7 +885,7 @@ MonoBehaviour:
   gameInput: {fileID: 1014786694}
   countersLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1001 &5888992006967102683
 PrefabInstance:
   m_ObjectHideFlags: 0
