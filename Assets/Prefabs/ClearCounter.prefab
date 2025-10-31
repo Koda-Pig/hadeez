@@ -173,9 +173,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9fec904cfb34e778d98a97f2edafa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
+  clearCounter: {fileID: 2068959724470492205}
+  visualGameObject: {fileID: 6645839374691921895}
 --- !u!4 &1604628084507592707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
+  m_PrefabInstance: {fileID: 3023388396658470056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6645839374691921895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8489276541531669327, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
   m_PrefabInstance: {fileID: 3023388396658470056}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8257163199704076156

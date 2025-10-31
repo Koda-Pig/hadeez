@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; set; }
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
 
     public class OnSelectedCounterChangedEventArgs : EventArgs
@@ -22,6 +23,15 @@ public class Player : MonoBehaviour
     private bool isWalking;
     private Vector3 lastInteractionDirection;
     private ClearCounter selectedCounter;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("There is more than one player instance. That ain't right.");
+        }
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -139,27 +149,29 @@ public class Player : MonoBehaviour
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
-                // if the current clearCounter is the same as the selectedcounter,
                 if (clearCounter == selectedCounter)
                     return;
-
                 selectedCounter = clearCounter;
-
-                OnSelectedCounterChanged?.Invoke(
-                    this,
-                    new OnSelectedCounterChangedEventArgs { selectedCounter = selectedCounter } // This is strange looking.
-                );
+                SetSelectedCounter(clearCounter);
             }
             else
             {
-                selectedCounter = null;
+                SetSelectedCounter(null);
             }
         }
         else
         {
-            selectedCounter = null;
+            SetSelectedCounter(null);
         }
+    }
 
-        Debug.Log(selectedCounter);
+    private void SetSelectedCounter(ClearCounter selectedCounter)
+    {
+        this.selectedCounter = selectedCounter;
+
+        OnSelectedCounterChanged?.Invoke(
+            this,
+            new OnSelectedCounterChangedEventArgs { selectedCounter = selectedCounter } // This is strange looking.
+        );
     }
 }
