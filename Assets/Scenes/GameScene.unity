@@ -787,9 +787,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2068959724470492205, guid: 563ad15bc1a874d0b95a9fecb9cf650b, type: 3}
+      propertyPath: cheesePrefab
+      value: 
+      objectReference: {fileID: 4017097469899054442, guid: d44e4223315ca4ed992e0cfdcd415d3f, type: 3}
     - target: {fileID: 8848754373784661340, guid: 563ad15bc1a874d0b95a9fecb9cf650b, type: 3}
       propertyPath: m_Name
-      value: ClearCounter (1)
+      value: ClearCounter (cheese)
       objectReference: {fileID: 0}
     - target: {fileID: 8971522056980816344, guid: 563ad15bc1a874d0b95a9fecb9cf650b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -896,7 +900,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8848754373784661340, guid: 563ad15bc1a874d0b95a9fecb9cf650b, type: 3}
       propertyPath: m_Name
-      value: ClearCounter
+      value: ClearCounter (tomato)
       objectReference: {fileID: 0}
     - target: {fileID: 8971522056980816344, guid: 563ad15bc1a874d0b95a9fecb9cf650b, type: 3}
       propertyPath: m_LocalPosition.x

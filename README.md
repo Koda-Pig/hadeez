@@ -1,6 +1,6 @@
 # Unity Game
 
-[CM Tut](https://youtu.be/AmGSEH7QcDg?si=258Soi2uLDatAPtj&t=11422)
+[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=12023) PROB: does not have the same fields as he says here
 
 ## Notes
 
@@ -28,3 +28,4 @@
 9. Use event listeners instead of doing constant `if` checks where appropriate. A good example of this is a player interaction. Not something you want to be checking every single frame, better to have a listener.
 10. When creating multiple visuals inside of an object, ensure that one of the visuals is slightly bigger than the other (1% is enough). If they are left the same size, it can sometimes cause visual bugs.
 11. `static` keyword means that the variable belongs only to the class itself! Not instances of the class.
+12. Gotta remember to attach scripts, and references to things in the scripts in Unity UI as well.
