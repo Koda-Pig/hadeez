@@ -1,19 +1,21 @@
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 
 public class ClearCounter : MonoBehaviour
 {
     [SerializeField]
-    private Transform tomatoPrefab;
-
-    [SerializeField]
-    private Transform cheesePrefab;
+    private KitchenObjectSO kitchenObjectSO;
 
     [SerializeField]
     private Transform counterTopPoint;
 
     public void Interact()
     {
-        Transform tomatoTransform = Instantiate(tomatoPrefab, counterTopPoint);
-        tomatoTransform.localPosition = Vector3.zero;
+        Transform ktichenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
+        ktichenObjectTransform.localPosition = Vector3.zero;
+
+        Debug.Log(
+            ktichenObjectTransform.GetComponent<KitchenObject>()?.GetKitchenObjectSO().objectName
+        );
     }
 }

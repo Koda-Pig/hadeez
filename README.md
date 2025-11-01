@@ -1,6 +1,6 @@
 # Unity Game
 
-[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=12023) PROB: does not have the same fields as he says here
+[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=12244)
 
 ## Notes
 
