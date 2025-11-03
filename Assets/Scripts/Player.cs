@@ -40,6 +40,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private void Start()
     {
         gameInput.OnInteractAction += GameInput_OnInterAction;
+        gameInput.OnInteractAlternateAction += GameInput_OnAlternateInteraction;
+    }
+
+    private void GameInput_OnAlternateInteraction(object sender, EventArgs e)
+    {
+        selectedCounter?.InteractAlternate(this);
     }
 
     private void GameInput_OnInterAction(object sender, System.EventArgs e)
@@ -77,14 +83,17 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             // Cannot move towards this moveDirection
             // Attempt only X movement
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0, 0).normalized;
+            bool isTryingToMoveX = moveDirection.x != 0;
 
-            canMove = !Physics.CapsuleCast(
-                transform.position,
-                transform.position + Vector3.up * playerHeight,
-                playerRadius,
-                moveDirectionX,
-                moveDistance
-            );
+            canMove =
+                isTryingToMoveX
+                && !Physics.CapsuleCast(
+                    transform.position,
+                    transform.position + Vector3.up * playerHeight,
+                    playerRadius,
+                    moveDirectionX,
+                    moveDistance
+                );
 
             if (canMove)
             {
@@ -95,14 +104,17 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             {
                 // cannot move only on the X axis, try Z
                 Vector3 moveDirectionZ = new Vector3(0, 0, moveDirection.z).normalized;
+                bool isTryingToMoveZ = moveDirection.z != 0;
 
-                canMove = !Physics.CapsuleCast(
-                    transform.position,
-                    transform.position + Vector3.up * playerHeight,
-                    playerRadius,
-                    moveDirectionZ,
-                    moveDistance
-                );
+                canMove =
+                    isTryingToMoveZ
+                    && !Physics.CapsuleCast(
+                        transform.position,
+                        transform.position + Vector3.up * playerHeight,
+                        playerRadius,
+                        moveDirectionZ,
+                        moveDistance
+                    );
 
                 if (canMove)
                 {
