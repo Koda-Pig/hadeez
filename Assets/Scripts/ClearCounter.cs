@@ -10,7 +10,6 @@ public class ClearCounter : BaseCounter
 
             if (player.HasKitchenObject())
             {
-                Debug.Log("THe player is carrying something");
                 player.GetKitchenObject().SetKitchenObjectParent(this);
             }
             else
@@ -20,9 +19,6 @@ public class ClearCounter : BaseCounter
         }
         else
         {
-            Debug.Log("kitchenobject here!");
-            Debug.Log(GetKitchenObject());
-
             if (player.HasKitchenObject())
             {
                 // player is carrying something
