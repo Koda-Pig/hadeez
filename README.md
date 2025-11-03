@@ -1,6 +1,6 @@
 # Unity Game
 
-[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=15184)
+[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=15820)
 
 ## Notes
 
