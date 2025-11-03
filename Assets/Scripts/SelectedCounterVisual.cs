@@ -3,10 +3,10 @@ using UnityEngine;
 public class SelectedCounterVisual : MonoBehaviour
 {
     [SerializeField]
-    private ClearCounter clearCounter;
+    private BaseCounter baseCounter;
 
     [SerializeField]
-    private GameObject visualGameObject;
+    private GameObject[] visualGameObjects;
 
     // We need Player object, which inits on `Awake`.
     // To ensure this script runs after that one
@@ -21,7 +21,7 @@ public class SelectedCounterVisual : MonoBehaviour
         Player.OnSelectedCounterChangedEventArgs e
     )
     {
-        if (e.selectedCounter == clearCounter)
+        if (e.selectedCounter == baseCounter)
         {
             Show();
         }
@@ -33,11 +33,17 @@ public class SelectedCounterVisual : MonoBehaviour
 
     private void Show()
     {
-        visualGameObject.SetActive(true);
+        foreach (GameObject gameObject in visualGameObjects)
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     private void Hide()
     {
-        visualGameObject.SetActive(false);
+        foreach (GameObject gameObject in visualGameObjects)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
