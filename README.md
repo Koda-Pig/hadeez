@@ -29,3 +29,5 @@
 10. When creating multiple visuals inside of an object, ensure that one of the visuals is slightly bigger than the other (1% is enough). If they are left the same size, it can sometimes cause visual bugs.
 11. `static` keyword means that the variable belongs only to the class itself! Not instances of the class.
 12. Gotta remember to attach scripts, and references to things in the scripts in Unity UI as well.
+13. There are no 'folders' for organising objects in the Hierachy, but you can use empty game objects in their stead. Just make sure to do the usual zeroing.
+14. Remember that in C# when you divide an int by another int, the result will be an int (eg: 1 / 10 = 0 {!= 0.1}). Careful with this when trying to get fractional values.

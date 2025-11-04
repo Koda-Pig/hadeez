@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CuttingCounter : BaseCounter
@@ -6,6 +7,13 @@ public class CuttingCounter : BaseCounter
     private CuttingRecipeSO[] cutKitchenObjectSOs;
 
     private int cuttingProgress;
+    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
+    public event EventHandler OnCut;
+
+    public class OnProgressChangedEventArgs : EventArgs
+    {
+        public float progressNormalized;
+    }
 
     public override void Interact(Player player)
     {
@@ -17,6 +25,18 @@ public class CuttingCounter : BaseCounter
                 {
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgress = 0;
+
+                    CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(
+                        GetKitchenObject().GetKitchenObjectSO()
+                    );
+
+                    float progressPercentage =
+                        (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax;
+
+                    OnProgressChanged?.Invoke(
+                        this,
+                        new OnProgressChangedEventArgs { progressNormalized = progressPercentage }
+                    );
                 }
             }
             else
@@ -48,7 +68,16 @@ public class CuttingCounter : BaseCounter
         {
             cuttingProgress++;
 
+            OnCut?.Invoke(this, EventArgs.Empty);
+
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(objectOnCounter);
+
+            float progressPercentage = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax;
+
+            OnProgressChanged?.Invoke(
+                this,
+                new OnProgressChangedEventArgs { progressNormalized = progressPercentage }
+            );
 
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
             {
