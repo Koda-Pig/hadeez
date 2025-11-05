@@ -8,12 +8,14 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     public virtual void Interact(Player player)
     {
-        Debug.Log("BaseCounter.Interact(); // this shouldn't be getting called");
+        Debug.LogError(
+            "this shouldn't be getting called. Each counter should have its own implementation of `Interact`"
+        );
     }
 
     public virtual void InteractAlternate(Player player)
     {
-        Debug.Log("BaseCounter.InteractAlternate(); // this shouldn't be getting called");
+        // Not all counters need an alternate interact method.
     }
 
     public bool HasKitchenObject() => kitchenObject != null;

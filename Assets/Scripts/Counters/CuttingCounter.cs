@@ -1,19 +1,14 @@
 using System;
 using UnityEngine;
 
-public class CuttingCounter : BaseCounter
+public class CuttingCounter : BaseCounter, IHasProgress
 {
     [SerializeField]
     private CuttingRecipeSO[] cutKitchenObjectSOs;
 
     private int cuttingProgress;
-    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
     public event EventHandler OnCut;
-
-    public class OnProgressChangedEventArgs : EventArgs
-    {
-        public float progressNormalized;
-    }
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
 
     public override void Interact(Player player)
     {
@@ -35,7 +30,10 @@ public class CuttingCounter : BaseCounter
 
                     OnProgressChanged?.Invoke(
                         this,
-                        new OnProgressChangedEventArgs { progressNormalized = progressPercentage }
+                        new IHasProgress.OnProgressChangedEventArgs
+                        {
+                            progressNormalized = progressPercentage,
+                        }
                     );
                 }
             }
@@ -46,8 +44,7 @@ public class CuttingCounter : BaseCounter
         }
         else
         {
-            Debug.Log("kitchenobject here!");
-            Debug.Log(GetKitchenObject());
+            // kitchenobject here
 
             if (player.HasKitchenObject())
             {
@@ -62,6 +59,12 @@ public class CuttingCounter : BaseCounter
 
     public override void InteractAlternate(Player player)
     {
+        if (!GetKitchenObject())
+        {
+            Debug.Log("There's nothing on the counter to interact with");
+            return;
+        }
+
         KitchenObjectSO objectOnCounter = GetKitchenObject().GetKitchenObjectSO();
 
         if (HasKitchenObject() && HasRecipeWithInput(objectOnCounter)) // only continue if there is a kitchen object that can be cut
@@ -76,7 +79,10 @@ public class CuttingCounter : BaseCounter
 
             OnProgressChanged?.Invoke(
                 this,
-                new OnProgressChangedEventArgs { progressNormalized = progressPercentage }
+                new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = progressPercentage,
+                }
             );
 
             if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)

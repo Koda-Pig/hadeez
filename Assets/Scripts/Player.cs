@@ -32,7 +32,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         if (Instance != null)
         {
-            Debug.Log("There is more than one player instance. That ain't right.");
+            Debug.LogError("There is more than one player instance. That ain't right.");
         }
         Instance = this;
     }

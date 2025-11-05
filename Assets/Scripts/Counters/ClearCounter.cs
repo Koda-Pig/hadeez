@@ -6,7 +6,7 @@ public class ClearCounter : BaseCounter
     {
         if (!HasKitchenObject())
         {
-            Debug.Log("no kitchenobject here");
+            // no kitchenobject here
 
             if (player.HasKitchenObject())
             {
