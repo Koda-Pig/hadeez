@@ -3,10 +3,10 @@ using UnityEngine;
 public class KitchenObject : MonoBehaviour
 {
     [SerializeField]
-    private KitchenObjectSO kicthenObjectSO;
+    private KitchenObjectSO kitchenObjectSO;
     private IKitchenObjectParent kitchenObjectParent;
 
-    public KitchenObjectSO GetKitchenObjectSO() => kicthenObjectSO;
+    public KitchenObjectSO GetKitchenObjectSO() => kitchenObjectSO;
 
     public IKitchenObjectParent GetKitchenObjectParent() => kitchenObjectParent;
 
