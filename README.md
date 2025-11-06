@@ -1,6 +1,6 @@
 # Unity Game
 
-[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=24264)
+[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=25545)
 
 ## Notes
 
@@ -32,3 +32,9 @@
 13. There are no 'folders' for organising objects in the Hierachy, but you can use empty game objects in their stead. Just make sure to do the usual zeroing.
 14. Remember that in C# when you divide an int by another int, the result will be an int (eg: 1 / 10 = 0 {!= 0.1}). Careful with this when trying to get fractional values.
 15. At around [this timestamp](https://youtu.be/AmGSEH7QcDg?si=Eg-qQesHX0yGwHPt&t=23532), the instructor adds a UI image and it shows up on the scene view, despite it having its dimensions all set to 0. Not the case for me, so I've given it the same dimensions as its parent element (0.3). Everything still seems to work the same way, just noting it incase it causes issues for some reason down the line.
+
+---
+
+## Additional Features
+
+1. Add a chair for the player to sit down on. Poor cunt is surrounded by counters.
