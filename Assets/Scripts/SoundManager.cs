@@ -6,30 +6,53 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField]
     private AudioClipRefsSO audioClipRefsSO;
+    public static SoundManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
-        CuttingCounter.OnAnyCut += CuttingCount_OnAnyCut;
+        CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
+        Player.Instance.OnPickedSomething += Instance_OnPickedSomething;
+        BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
+        TrashCounter.OnAnyObjectTrashed += TrashCounter_ObjectTrashed;
     }
 
-    private void CuttingCount_OnAnyCut(object sender, EventArgs e)
+    private void TrashCounter_ObjectTrashed(object sender, EventArgs e)
     {
-        CuttingCounter cuttingCounter = sender as CuttingCounter;
-        PlaySoundButBetter(audioClipRefsSO.chop, cuttingCounter.transform.position);
+        PlaySound(audioClipRefsSO.trash, (sender as TrashCounter).transform.position);
+    }
+
+    private void BaseCounter_OnAnyObjectPlacedHere(object sender, EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.objectDrop, (sender as BaseCounter).transform.position);
+    }
+
+    private void Instance_OnPickedSomething(object sender, EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.objectPickup, Player.Instance.transform.position);
+    }
+
+    private void CuttingCounter_OnAnyCut(object sender, EventArgs e)
+    {
+        PlaySound(audioClipRefsSO.chop, (sender as CuttingCounter).transform.position);
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, EventArgs e)
     {
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySoundButBetter(audioClipRefsSO.deliveryFailed, deliveryCounter.transform.position);
+        PlaySound(audioClipRefsSO.deliveryFailed, deliveryCounter.transform.position);
     }
 
     private void DeliveryManager_OnRecipeSuccess(object sender, EventArgs e)
     {
         DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlaySoundButBetter(audioClipRefsSO.deliverySuccess, deliveryCounter.transform.position);
+        PlaySound(audioClipRefsSO.deliverySuccess, deliveryCounter.transform.position);
     }
 
     private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)
@@ -37,12 +60,17 @@ public class SoundManager : MonoBehaviour
         AudioSource.PlayClipAtPoint(audioClip, position, volume);
     }
 
-    private void PlaySoundButBetter(AudioClip[] audioClipArray, Vector3 position, float volume = 1f)
+    private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume = 1f)
     {
         PlaySound(
             audioClipArray[UnityEngine.Random.Range(0, audioClipArray.Length)],
             position,
             volume
         );
+    }
+
+    public void PlayFootStepsSound(Vector3 position, float volume)
+    {
+        PlaySound(audioClipRefsSO.footstep, position, volume);
     }
 }
