@@ -33,7 +33,7 @@
 14. Remember that in C# when you divide an int by another int, the result will be an int (eg: 1 / 10 = 0 {!= 0.1}). Careful with this when trying to get fractional values.
 15. At around [this timestamp](https://youtu.be/AmGSEH7QcDg?si=Eg-qQesHX0yGwHPt&t=23532), the instructor adds a UI image and it shows up on the scene view, despite it having its dimensions all set to 0. Not the case for me, so I've given it the same dimensions as its parent element (0.3). Everything still seems to work the same way, just noting it incase it causes issues for some reason down the line.
 16. I'm making a habit of inverting the logic for the scripting from the tutorial. For example using early returns instead of nested `if` statements. This is helping me to conceptualize the logic better, and if I make a mistake in my version of the logic, I have an opportunity to practice some debugging.
-17. You can have multiple methods with the same name and it works, as long as they have different params. The compiler automatically picks the right one based on the args passed. Good stuff.
+17. You can have multiple methods with the same name and it works, as long as they have different params. The compiler automatically picks the right one based on the args passed. Nice.
 
 ---
 
