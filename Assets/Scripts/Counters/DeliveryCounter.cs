@@ -10,10 +10,12 @@ public class DeliveryCounter : BaseCounter
         }
 
         // Player is not holding a plate
-        if (!player.GetKitchenObject().TryGetPlate(out PlateKitchenObject _))
+        if (!player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
         {
             return;
         }
+
+        DeliveryManager.Instance.DeliverRecipe(plateKitchenObject);
 
         player.GetKitchenObject().DestroySelf();
     }
