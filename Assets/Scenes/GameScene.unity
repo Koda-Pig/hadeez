@@ -3797,6 +3797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2027270243}
   - component: {fileID: 2027270244}
+  - component: {fileID: 2027270245}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3839,6 +3840,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   kitchenObjectHoldPoint: {fileID: 1006866008}
+--- !u!114 &2027270245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027270242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fbc20e611114484a739f6e2bcad507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayeSounds
 --- !u!4 &2045446869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3294758251441920654, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
