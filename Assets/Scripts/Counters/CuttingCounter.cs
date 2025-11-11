@@ -134,4 +134,9 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
         return null;
     }
+
+    public static new void ResetStaticData()
+    {
+        OnAnyCut = null;
+    }
 }

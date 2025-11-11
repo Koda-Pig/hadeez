@@ -13,17 +13,10 @@ public class MainMenuUI : MonoBehaviour
 
     private void Awake()
     {
-        playButton.onClick.AddListener(HandlePlayButtonClick);
-        quitButton.onClick.AddListener(HandleQuitButtonClick);
-    }
+        playButton.onClick.AddListener(() => Loader.Load(Loader.Scene.GameScene));
+        quitButton.onClick.AddListener(() => Application.Quit());
 
-    private void HandlePlayButtonClick()
-    {
-        Loader.Load(Loader.Scene.GameScene);
-    }
-
-    private void HandleQuitButtonClick()
-    {
-        Application.Quit();
+        // set game play speed back to 1 (0 is game paused)
+        Time.timeScale = 1f;
     }
 }
