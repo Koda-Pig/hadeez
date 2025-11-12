@@ -14,39 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1762873988
+  lastShownTimestamp: 1762960599
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1762873988
+  checkedLastUpdateTimestamp: 1762960599
   lastQOTDResponse:
-    questionId: 240
-    questionText: 'What is the value stored in percentage?
+    questionId: 241
+    questionText: 'What is the result of this code:
 
-      <p>int health =
-      25;</p>
+      <p>int money = 2000000000;
+      // $2 billion</p>
 
-      <p>int healthMax = 100;</p>
-
-      <p>float percentage = health
-      / healthMax;</p>'
-    answerA: 0.25f
-    answerB: 0
-    answerC: 2.5f
+      <p>money += 1000000000; // Adding $1 billion</p>'
+    answerA: money == 3000000000
+    answerB: money == -1294967296
+    answerC: money == 0
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1762873988
+  lastQotdTimestamp: 1762960599
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/cmBlackFriday2025.png
     topText: Get my BLACK FRIDAY Bundle! Available now with Live Chat!
     topLink: blackfriday
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1762873988
+  lastDynamicHeaderTimestamp: 1762960599
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1762873988
+  websiteLatestMessageTimestamp: 1762960599
   websiteLatestVideos:
     videos:
     - youTubeId: HSLVMh25YWo
@@ -57,4 +54,4 @@ MonoBehaviour:
       title: Unity turns 20! Get FREE Assets and Make Games!
     - youTubeId: slMe3sbS_KM
       title: What is Unity Studio?
-  websiteLatestVideosTimestamp: 1762873988
+  websiteLatestVideosTimestamp: 1762960599

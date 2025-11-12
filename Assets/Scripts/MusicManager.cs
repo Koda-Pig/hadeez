@@ -15,14 +15,10 @@ public class MusicManager : MonoBehaviour
         audioSource.volume = volume;
     }
 
-    public void ChangeVolume()
+    public void SetVolume(float newVolume)
     {
-        volume += .1f;
-        if (volume > 1f)
-        {
-            volume = 0f;
-        }
         audioSource.volume = volume;
+        volume = newVolume;
         PlayerPrefs.SetFloat(PLAYER_PREFS_MUSIC_VOLUME, volume);
         PlayerPrefs.Save();
     }
