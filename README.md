@@ -36,7 +36,7 @@
 17. You can have multiple methods with the same name and it works, as long as they have different params. The compiler automatically picks the right one based on the args passed. Nice.
 18. Some acrobats being done to prevent using strings in the code, which I do respect. I think it's worth the extra code overhead.
 19. Cool tidbit: the `Time.deltaTime` value already contains a multiplier (`timeScale`). This makes it super easy to manipulate anything in the game that makes use of `Time.deltaTime`. For example to pause the game, you can simply set the `Time.timeScale` to `0f`.
-20. Remember that for static events, you need to manually reset the state yourself, like it would with non-static events.
+20. Remember that for static events, you need to manually reset the state yourself.
 
 ---
 
