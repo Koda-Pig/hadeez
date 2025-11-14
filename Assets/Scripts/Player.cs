@@ -94,7 +94,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             // Cannot move towards this moveDirection
             // Attempt only X movement
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0, 0).normalized;
-            bool isTryingToMoveX = moveDirection.x != 0;
+            bool isTryingToMoveX = moveDirection.x < -.5f || moveDirection.x > .5f;
 
             canMove =
                 isTryingToMoveX
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             {
                 // cannot move only on the X axis, try Z
                 Vector3 moveDirectionZ = new Vector3(0, 0, moveDirection.z).normalized;
-                bool isTryingToMoveZ = moveDirection.z != 0;
+                bool isTryingToMoveZ = moveDirection.z < -.5f || moveDirection.z > .5f;
 
                 canMove =
                     isTryingToMoveZ
@@ -146,11 +146,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         isWalking = moveDirection != Vector3.zero;
 
         float rotateSpeed = 10f;
-        transform.forward = Vector3.Slerp(
-            transform.forward,
-            moveDirection,
-            Time.deltaTime * rotateSpeed
-        );
+        transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
     }
 
     private void HandleInteractions()

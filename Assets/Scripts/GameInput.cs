@@ -20,6 +20,9 @@ public class GameInput : MonoBehaviour
         Interact,
         InteractAlternate,
         Pause,
+        GamepadInteract,
+        GamepadInteractAlternate,
+        GamepadPause,
     }
 
     private void Awake()
@@ -102,6 +105,15 @@ public class GameInput : MonoBehaviour
             case Binding.Pause:
                 bindingToDisplay = playerInputActions.Player.Pause.bindings[0];
                 break;
+            case Binding.GamepadInteract:
+                bindingToDisplay = playerInputActions.Player.Interact.bindings[1];
+                break;
+            case Binding.GamepadInteractAlternate:
+                bindingToDisplay = playerInputActions.Player.InteractAlternate.bindings[1];
+                break;
+            case Binding.GamepadPause:
+                bindingToDisplay = playerInputActions.Player.Pause.bindings[1];
+                break;
         }
 
         if (bindingToDisplay == null)
@@ -149,6 +161,18 @@ public class GameInput : MonoBehaviour
             case Binding.Pause:
                 inputAction = playerInputActions.Player.Pause;
                 bindingIndex = 0;
+                break;
+            case Binding.GamepadInteract:
+                inputAction = playerInputActions.Player.Interact;
+                bindingIndex = 1;
+                break;
+            case Binding.GamepadInteractAlternate:
+                inputAction = playerInputActions.Player.InteractAlternate;
+                bindingIndex = 1;
+                break;
+            case Binding.GamepadPause:
+                inputAction = playerInputActions.Player.Pause;
+                bindingIndex = 1;
                 break;
         }
 
