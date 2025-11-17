@@ -86,8 +86,12 @@ public class OptionsUI : MonoBehaviour
     {
         Instance = this;
 
-        soundFXSlider.onValueChanged.AddListener((val) => SoundManager.Instance.SetVolume(val));
-        musicSlider.onValueChanged.AddListener((val) => MusicManager.Instance.SetVolume(val));
+        soundFXSlider.onValueChanged.AddListener(
+            (val) => SoundManager.Instance.SetVolume(val)
+        );
+        musicSlider.onValueChanged.AddListener(
+            (val) => MusicManager.Instance.SetVolume(val)
+        );
 
         closeBtn.onClick.AddListener(() =>
         {
@@ -97,18 +101,29 @@ public class OptionsUI : MonoBehaviour
         moveUpBtn.onClick.AddListener(() => RebindBinding(Binding.MoveUp));
         moveDownBtn.onClick.AddListener(() => RebindBinding(Binding.MoveDown));
         moveLeftBtn.onClick.AddListener(() => RebindBinding(Binding.MoveLeft));
-        moveRightBtn.onClick.AddListener(() => RebindBinding(Binding.MoveRight));
+        moveRightBtn.onClick.AddListener(() =>
+            RebindBinding(Binding.MoveRight)
+        );
         interactBtn.onClick.AddListener(() => RebindBinding(Binding.Interact));
-        interactAltBtn.onClick.AddListener(() => RebindBinding(Binding.InteractAlternate));
+        interactAltBtn.onClick.AddListener(() =>
+            RebindBinding(Binding.InteractAlternate)
+        );
         pauseBtn.onClick.AddListener(() => RebindBinding(Binding.Pause));
-        gamepadInteractBtn.onClick.AddListener(() => RebindBinding(Binding.GamepadInteract));
-        gamepadInteractAltBtn.onClick.AddListener(() => RebindBinding(Binding.GamepadInteractAlternate));
-        gamepadPauseBtn.onClick.AddListener(() => RebindBinding(Binding.GamepadPause));
+        gamepadInteractBtn.onClick.AddListener(() =>
+            RebindBinding(Binding.GamepadInteract)
+        );
+        gamepadInteractAltBtn.onClick.AddListener(() =>
+            RebindBinding(Binding.GamepadInteractAlternate)
+        );
+        gamepadPauseBtn.onClick.AddListener(() =>
+            RebindBinding(Binding.GamepadPause)
+        );
     }
 
     private void Start()
     {
-        KitchenGameManager.Instance.OnGameUnpaused += KitchenGameManager_OnGamePaused;
+        KitchenGameManager.Instance.OnGameUnpaused +=
+            KitchenGameManager_OnGamePaused;
         soundFXSlider.value = SoundManager.Instance.GetVolume();
         musicSlider.value = MusicManager.Instance.GetVolume();
         UpdateVisual();

@@ -35,7 +35,10 @@ public class DeliveryManager : MonoBehaviour
 
         spawnRecipeTimer = spawnRecipeTimerMax;
 
-        if (waitingRecipeSOList.Count >= waitingRecipesMax)
+        if (
+            (waitingRecipeSOList.Count >= waitingRecipesMax)
+            || !KitchenGameManager.Instance.IsGamePlaying()
+        )
         {
             return;
         }
@@ -61,7 +64,9 @@ public class DeliveryManager : MonoBehaviour
             {
                 bool plateContentsMatchesRecipe = true;
 
-                foreach (KitchenObjectSO recipeIngredient in waitingRecipeSO.kitchenObjectSOList)
+                foreach (
+                    KitchenObjectSO recipeIngredient in waitingRecipeSO.kitchenObjectSOList
+                )
                 {
                     bool ingredientFound = false;
 

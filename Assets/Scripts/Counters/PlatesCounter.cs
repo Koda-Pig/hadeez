@@ -19,14 +19,18 @@ public class PlatesCounter : BaseCounter
         spawnPlateTimer += Time.deltaTime;
         if (spawnPlateTimer > spawnPlateTimerMax)
         {
-            // KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, this);
             spawnPlateTimer = 0f;
 
-            if (platesSpawnedAmount < platesSpawnedAmountMax)
+            if (
+                platesSpawnedAmount >= platesSpawnedAmountMax
+                || !KitchenGameManager.Instance.IsGamePlaying()
+            )
             {
-                platesSpawnedAmount++;
-                OnPlateSpawned?.Invoke(this, EventArgs.Empty);
+                return;
             }
+
+            platesSpawnedAmount++;
+            OnPlateSpawned?.Invoke(this, EventArgs.Empty);
         }
     }
 

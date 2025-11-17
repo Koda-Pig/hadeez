@@ -1,6 +1,6 @@
 # Unity Game
 
-[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=36324)
+[CM Tut](https://youtu.be/AmGSEH7QcDg?si=1jsnQWUKKulV43mJ&t=38646)
 
 ## Notes
 
@@ -44,3 +44,9 @@
 
 1. Add a chair for the player to sit down on. Poor cunt is surrounded by counters.
 2. Change the volume controls to be actually decent. The tutorials version of volume control is a single button that you click to increment the volume until it reaches the max, then loops back down to zero. This is unhinged behavior.
+
+---
+
+## Bugs to fix
+
+1. Incoming recipes and plates are delayed by 1 second.
