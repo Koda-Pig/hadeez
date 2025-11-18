@@ -18,16 +18,13 @@ public class GameStartCountdownUI : MonoBehaviour
 
     private void Start()
     {
-        KitchenGameManager.Instance.OnStateChanged +=
-            KitchenGameManager_OnStateChanged;
+        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
         Hide();
     }
 
     private void Update()
     {
-        int countdownNumber = Mathf.CeilToInt(
-            KitchenGameManager.Instance.GetCountdownToStartTimer()
-        );
+        int countdownNumber = Mathf.CeilToInt(KitchenGameManager.Instance.GetCountdownToStartTimer());
         countdownText.text = countdownNumber.ToString();
 
         if (previousCountdownNumber == countdownNumber)

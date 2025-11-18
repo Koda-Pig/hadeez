@@ -17,21 +17,20 @@ public class PlatesCounter : BaseCounter
     private void Update()
     {
         spawnPlateTimer += Time.deltaTime;
-        if (spawnPlateTimer > spawnPlateTimerMax)
+        if (spawnPlateTimer <= spawnPlateTimerMax)
         {
-            spawnPlateTimer = 0f;
-
-            if (
-                platesSpawnedAmount >= platesSpawnedAmountMax
-                || !KitchenGameManager.Instance.IsGamePlaying()
-            )
-            {
-                return;
-            }
-
-            platesSpawnedAmount++;
-            OnPlateSpawned?.Invoke(this, EventArgs.Empty);
+            return;
         }
+
+        spawnPlateTimer = 0f;
+
+        if (platesSpawnedAmount == platesSpawnedAmountMax || !KitchenGameManager.Instance.IsGamePlaying())
+        {
+            return;
+        }
+
+        platesSpawnedAmount++;
+        OnPlateSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     public override void Interact(Player player)

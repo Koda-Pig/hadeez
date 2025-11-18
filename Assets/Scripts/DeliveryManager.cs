@@ -35,10 +35,7 @@ public class DeliveryManager : MonoBehaviour
 
         spawnRecipeTimer = spawnRecipeTimerMax;
 
-        if (
-            (waitingRecipeSOList.Count >= waitingRecipesMax)
-            || !KitchenGameManager.Instance.IsGamePlaying()
-        )
+        if ((waitingRecipeSOList.Count >= waitingRecipesMax) || !KitchenGameManager.Instance.IsGamePlaying())
         {
             return;
         }
@@ -57,26 +54,20 @@ public class DeliveryManager : MonoBehaviour
             RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
 
             bool hasSameNumberOfIngredients =
-                waitingRecipeSO.kitchenObjectSOList.Count
-                == plateKitchenObject.GetKichenObjectSOList().Count;
+                waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKichenObjectSOList().Count;
 
             if (hasSameNumberOfIngredients)
             {
                 bool plateContentsMatchesRecipe = true;
 
-                foreach (
-                    KitchenObjectSO recipeIngredient in waitingRecipeSO.kitchenObjectSOList
-                )
+                foreach (KitchenObjectSO recipeIngredient in waitingRecipeSO.kitchenObjectSOList)
                 {
                     bool ingredientFound = false;
 
-                    foreach (
-                        KitchenObjectSO plateIngredient in plateKitchenObject.GetKichenObjectSOList()
-                    )
+                    foreach (KitchenObjectSO plateIngredient in plateKitchenObject.GetKichenObjectSOList())
                     {
                         if (plateIngredient == recipeIngredient)
                         {
-                            //
                             ingredientFound = true;
                             break;
                         }

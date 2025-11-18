@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IKitchenObjectParent
@@ -27,6 +26,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private Transform kitchenObjectHoldPoint;
 
     private bool isWalking;
+    private bool isSitting;
     private Vector3 lastInteractionDirection;
     private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
@@ -74,6 +74,10 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
+        if (isSitting)
+        {
+            return;
+        }
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new(inputVector.x, 0f, inputVector.y);
 
@@ -155,7 +159,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDirection = new(inputVector.x, 0f, inputVector.y);
 
-        if (moveDirection != Vector3.zero)
+        if (moveDirection != Vector3.zero && !isSitting) // can't change directions when sitting
         {
             lastInteractionDirection = moveDirection;
         }
@@ -218,5 +222,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     public void ClearKitchenObject()
     {
         kitchenObject = null;
+    }
+
+    public bool IsSitting() => isSitting;
+
+    public void SetIsSitting(bool sitting)
+    {
+        isSitting = sitting;
     }
 }

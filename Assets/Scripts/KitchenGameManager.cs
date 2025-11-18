@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class KitchenGameManager : MonoBehaviour
@@ -19,7 +18,6 @@ public class KitchenGameManager : MonoBehaviour
 
     private State state;
 
-    // private float waitingToStartTimer = 1f;
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
     private float gamePlayingTimerMax = 20f;
